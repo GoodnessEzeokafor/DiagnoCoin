@@ -1,0 +1,23 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+django = "==2.0.6"
+numpy = "*"
+sklearn = "*"
+pandas = "*"
+django-allauth = "*"
+gunicorn = "*"
+whitenoise = "==3.3.1"
+dj-database-url = "==0.5.0"
+django-pandas = "*"
+aepp-sdk = "*"
+django-crispy-forms = "*"
+psycopg2 = "==2.7.4"
+
+[requires]
+python_version = "3.5"
