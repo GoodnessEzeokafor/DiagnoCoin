@@ -1,20 +1,179 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    
-    <form action="" method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit">
-    </form>
-    {% if message %}
-        <h3>{{ message }}</h3>
-    {% endif %}
-</body>
-</html>
+
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+<div class="page-wrapper">
+        <!-- HEADER DESKTOP-->
+        <header class="header-desktop4">
+            <div class="container">
+                <div class="header4-wrap">
+                    <div class="header__logo">
+                        <a href="#">
+                            <img src="{% static 'css/logo-mini.png'%}" alt="CoolAdmin" />
+                        </a>
+                    </div>
+                    <div class="header__tool">
+                        <div class="account-wrap">
+                            <div class="account-item account-item--style2 clearfix js-item-menu">
+                                <div class="image">
+                                    <img src="{% static 'css/av.png'%}" alt="John Doe" />
+                                </div>
+                                <div class="content">
+                                    <a class="js-acc-btn" href="#">{{ request.user}}</a>
+                                </div>
+                                <div class="account-dropdown js-dropdown">
+                                    <div class="info clearfix">
+                                        <div class="image">
+                                            <a href="#">
+                                                <img src="{% static 'css/av.png'%}" alt="John Doe" />
+                                            </a>
+                                        </div>
+                                        <div class="content">
+                                            <h5 class="name">
+                                                <a href="#">{{ request.user }}</a>
+                                            </h5>
+                                            <span class="email">{{ request.user.email}}</span>
+                                        </div>
+                                    </div>
+                    
+                                    <div class="account-dropdown__footer">
+                                        <a href="{% url 'account:logout' %}">
+                                            <i class="zmdi zmdi-power"></i>Logout</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- END HEADER DESKTOP -->
+
+        <!-- WELCOME-->
+        <section class="welcome2 p-t-40 p-b-55">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="au-breadcrumb3">
+                            <div class="au-breadcrumb-left">
+                                <span class="au-breadcrumb-span">You are here:</span>
+                                <ul class="list-unstyled list-inline au-breadcrumb__list">
+                                    
+                                    <li class="list-inline-item seprate">
+                                        <span>/</span>
+                                    </li>
+                                    <li class="list-inline-item">Dashboard</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="welcome2-inner m-t-60">
+                            <div class="welcome2-greeting">
+                                <h1 class="title-6">Hi
+                                    <span>{{ request.user }}</span>, Welcome back</h1>
+                                <p>Your Dashboard</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END WELCOME-->
+
+        <!-- PAGE CONTENT-->
+        <div class="page-container3">
+            <section class="alert-wrap p-t-70 p-b-70">
+                    <div class="container">
+                            <div class="row">
+                                <div class="col-xl-1"></div>
+                                <div class="col-xl-10">
+                                    <!-- PAGE CONTENT-->
+                                    <div class="page-content">
+                                        <div class="row">
+                                            <div class="col-lg-8">
+                                                <!-- RECENT REPORT-->
+                                                <div class="recent-report3 m-b-40">
+                                                    <div class="title-wrap">
+                                                        <h3 class="title-3">recent reports</h3>
+                                                        <div class="chart-info-wrap">
+                                                            <div class="chart-note">
+                                                                <span class="dot dot--blue"></span>
+                                                                <span>Blue</span>
+                                                            </div>
+                                                            <div class="chart-note mr-0">
+                                                                <span class="dot dot--green"></span>
+                                                                <span>green</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="card">
+                                                        <div class="card-header">
+                                                            <strong>Basic Form</strong> Elements
+                                                        </div>
+                                                        <div class="card-body card-block">
+                                                            <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+                                                                {% csrf_token %}                                                                {% csrf_token %}
+                                                                {{ form|crispy }}
+                                                                <div class="card-footer">
+                                                                    <button type="submit" class="btn btn-primary btn-sm">
+                                                                        <i class="fa fa-dot-circle-o"></i> Submit
+                                                                    </button>
+                                                                    <button type="reset" class="btn btn-danger btn-sm">
+                                                                        <i class="fa fa-ban"></i> Reset
+                                                                    </button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                        
+                                                    </div>
+
+                                                    </div>
+                                        </div>
+
+                                        <div class="col-lg-4">
+                                            <!-- CHART PERCENT-->
+                                            <!-- <div class="chart-percent-3 m-b-40">
+                                                <h3 class="title-3 m-b-25">chart by %</h3>
+                                                <div class="chart-note m-b-5">
+                                                    <span class="dot dot--blue"></span>
+                                                    <span>products</span>
+                                                </div>
+                                                <div class="chart-note">
+                                                    <span class="dot dot--red"></span>
+                                                    <span>services</span>
+                                                </div>
+                                                <div class="chart-wrap m-t-60">
+                                                    <canvas id="percent-chart2"></canvas>
+                                                </div>
+                                            </div> -->
+                                            <!-- END CHART PERCENT-->
+                                            {% if message %}
+                                             <div class="chart-percent-3 m-b-40"> 
+
+                                            <h3 class="title-3 m-b-25">Disease: </h3>
+                                            <div class="chart-note m-b-5">
+                                                <span class="dot dot--blue"></span>
+                                                <span class="text-bold">{{ message }}</span>
+                                            </div>
+                                            </div>
+                                            {% endif %}
+                                        </div>
+                                        </div>
+                                    </div>
+                                    <!-- END PAGE CONTENT-->
+                                </div>
+                                <div class="col-xl-1"></div>
+                            </div>
+                        </div>
+                        </div>
+                    </section>
+        </div>
+        <!-- END PAGE CONTENT  -->
+
+    </div>
+{% endblock %}

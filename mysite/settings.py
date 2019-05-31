@@ -56,21 +56,22 @@ INSTALLED_APPS = [
 SITE_ID = 1  # For django allauth
 
 LOGOUT_REDIRECT_URL = '/account/login'
-LOGIN_REDIRECT_URL = '/profile'
+LOGIN_REDIRECT_URL = '/profile/form'
 LOGIN_URL = '/account/login'
 
 
 # DATABASES = {
 #         'default':{
 #          'ENGINE':'django.db.backends.postgresql',
-#          'NAME':'sms',
-#          'USER':'sms',
-#          'PASSWORD':'sms',
+#          'NAME':'diagnocoin',
+#          'USER':'diagnocoin',
+#          'PASSWORD':'diagnopassword',
 #          'HOST':'localhost',
 #          'PORT':''
 #      }
 
 #  }
+
 
 # db_from_env = dj_database_url.config(conn_max_age=500) # heroku
 # DATABASES['default'].update(db_from_env) # he
